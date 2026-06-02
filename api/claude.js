@@ -1,10 +1,9 @@
 export default async function handler(req, res) {
-  // CORS headers
-  res.setHeader('Access-Control-Allow-Origin', 'https://chassia.be');
+  // CORS — allow all origins for now
+  res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-  // Handle preflight
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
   }
@@ -13,7 +12,6 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  // Basic rate limiting check (Vercel handles most of this)
   const apiKey = process.env.ANTHROPIC_API_KEY;
   if (!apiKey) {
     return res.status(500).json({ error: 'API key not configured' });
@@ -22,7 +20,6 @@ export default async function handler(req, res) {
   try {
     const { model, messages, system, max_tokens } = req.body;
 
-    // Whitelist allowed models only
     const allowedModels = ['claude-sonnet-4-20250514', 'claude-opus-4-20250514'];
     if (!allowedModels.includes(model)) {
       return res.status(400).json({ error: 'Model not allowed' });
