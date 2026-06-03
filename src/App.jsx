@@ -374,9 +374,17 @@ async function askClaude(prompt, systemPrompt, history = [], premium = false) {
       messages,
     }),
   });
-  const data = await res.json();
+  let data;
+  try {
+    data = await res.json();
+  } catch (e) {
+    return "❌ Erreur API. Vérifie ta connexion ou réessaie.";
+  }
+  if (data && data.content && data.content[0] && data.content[0].text) {
+    return data.content[0].text;
+  }
   if (!res.ok) {
-    console.error("API error:", data.error);
+    console.error("API error:", data);
     return "❌ Erreur API. Vérifie ta connexion ou réessaie.";
   }
   return data.content?.[0]?.text || "Erreur lors de la réponse.";
