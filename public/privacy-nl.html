@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="color-scheme" content="dark" />
+<meta name="theme-color" content="#0d0f0a" />
+<meta name="robots" content="index, follow" />
+<title>Privacybeleid — ChassIA</title>
+<meta name="description" content="Privacybeleid van ChassIA, de assistent van de Belgische jager. Uw gegevens blijven op uw apparaat." />
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;900&family=IBM+Plex+Mono:wght@400;500;600&family=Crimson+Pro:ital,wght@0,400;0,500;1,400&display=swap');
+
+  :root {
+    color-scheme: dark;
+    --bg: #0d0f0a; --panel: #131508; --panel-2: #1a1e0f; --line: #2a3015;
+    --bone: #e8ead8; --white: #f5f7e8; --sage: #8a9068; --sage-dim: #5a6040; --lime: #8fb020; --lime-dim: #6a8415;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  html { background: #0d0f0a; }
+  body { margin: 0; min-height: 100vh; background: #0d0f0a; color: var(--bone); font-family: 'Crimson Pro', Georgia, serif; font-size: 1.08rem; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 22px 80px; }
+  header.masthead { border-bottom: 1px solid var(--line); padding: 48px 0 28px; margin-bottom: 36px; }
+  .brand { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 1.5rem; letter-spacing: -0.01em; color: var(--bone); text-decoration: none; }
+  .brand span { color: var(--lime); }
+  .eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--lime); margin: 26px 0 10px; }
+  h1 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(2.1rem, 6vw, 3rem); line-height: 1.05; letter-spacing: -0.015em; margin: 0 0 14px; }
+  .meta { font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem; color: var(--sage-dim); letter-spacing: 0.02em; }
+  .principle { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; margin: 8px 0 44px; }
+  .principle > div { background: var(--panel); padding: 22px 20px; }
+  .principle .stays { background: var(--panel-2); }
+  .principle .tag { font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 10px; display: flex; align-items: center; gap: 7px; }
+  .principle .stays .tag { color: var(--lime); }
+  .principle .sent .tag { color: var(--sage); }
+  .principle .dot { width: 8px; height: 8px; border-radius: 99px; flex-shrink: 0; }
+  .principle .stays .dot { background: var(--lime); }
+  .principle .sent .dot { background: var(--sage); }
+  .principle p { margin: 0; font-size: 0.98rem; line-height: 1.55; color: var(--bone); }
+  .principle .small { color: var(--sage); font-size: 0.88rem; margin-top: 8px; }
+  @media (max-width: 560px) { .principle { grid-template-columns: 1fr; } }
+  section { margin: 0 0 38px; scroll-margin-top: 20px; }
+  .sec-num { font-family: 'IBM Plex Mono', monospace; font-size: 0.74rem; color: var(--lime); letter-spacing: 0.1em; }
+  h2 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.42rem; line-height: 1.2; margin: 6px 0 14px; color: var(--bone); }
+  h3 { font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 0.82rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--sage); margin: 22px 0 8px; }
+  p { margin: 0 0 14px; }
+  a { color: var(--lime); text-decoration: none; border-bottom: 1px solid var(--lime-dim); }
+  a:hover { border-bottom-color: var(--lime); }
+  strong { color: #fff; font-weight: 600; }
+  ul { margin: 0 0 14px; padding-left: 0; list-style: none; }
+  ul li { position: relative; padding-left: 22px; margin-bottom: 9px; }
+  ul li::before { content: "▸"; position: absolute; left: 0; color: var(--lime-dim); }
+  .data-card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; margin: 0 0 14px; }
+  .data-card .key { font-family: 'IBM Plex Mono', monospace; font-size: 0.74rem; color: var(--lime); margin-bottom: 4px; }
+  .data-card .desc { font-size: 0.96rem; color: var(--bone); margin: 0; }
+  .note { border-left: 2px solid var(--lime-dim); padding: 4px 0 4px 16px; margin: 0 0 14px; color: var(--sage); font-style: italic; font-size: 0.96rem; }
+  .todo { background: rgba(200, 241, 53, 0.06); border: 1px dashed var(--lime-dim); border-radius: 8px; padding: 12px 16px; margin: 0 0 14px; font-family: 'IBM Plex Mono', monospace; font-size: 0.8rem; line-height: 1.6; color: var(--lime); }
+  footer { border-top: 1px solid var(--line); margin-top: 50px; padding-top: 24px; font-family: 'IBM Plex Mono', monospace; font-size: 0.76rem; color: var(--sage-dim); line-height: 1.7; }
+  footer a { color: var(--sage); border: none; }
+  footer a:hover { color: var(--lime); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <a href="/" class="brand">Chass<span>IA</span></a>
+    <div class="eyebrow">Gegevensbescherming</div>
+    <h1>Privacybeleid</h1>
+    <div class="meta">Laatst bijgewerkt: juni 2026 · Versie 1.0</div>
+  </header>
+
+  <div class="principle">
+    <div class="stays">
+      <div class="tag"><span class="dot"></span>Blijft op uw apparaat</div>
+      <p>Uw jachtlogboek, uw documenten (jachtverlof, verzekering), uw voorkeuren. Niets wordt naar een server gestuurd, niets wordt gedeeld.</p>
+    </div>
+    <div class="sent">
+      <div class="tag"><span class="dot"></span>Verlaat uw apparaat</div>
+      <p>Alleen de tekst van uw vragen aan de AI-assistent, verzonden gedurende de tijd die nodig is om een antwoord te genereren.</p>
+      <p class="small">Dit is het enige gegeven dat uw telefoon verlaat.</p>
+    </div>
+  </div>
+
+  <p>ChassIA is een toepassing die jagers ondersteunt. Ze is ontworpen om te werken <strong>zonder uw persoonsgegevens te verzamelen</strong>: het grootste deel van wat u erin opslaat, verlaat nooit uw apparaat. Deze pagina legt precies uit welke informatie wordt verwerkt, hoe, en wat uw rechten zijn.</p>
+
+  <section id="editeur">
+    <div class="sec-num">01</div>
+    <h2>Wie verantwoordelijk is voor uw gegevens</h2>
+    <p>ChassIA wordt uitgegeven en geëxploiteerd in België als zelfstandige activiteit. De verwerkingsverantwoordelijke is bereikbaar op het volgende adres:</p>
+    <p><strong>Contact:</strong> <a href="mailto:contact@chassia.be">contact@chassia.be</a></p>
+    <div class="todo">AAN TE VULLEN vóór publicatie: wettelijke naam van de uitgever, postadres en ondernemingsnummer (KBO). Deze vermeldingen zijn door de AVG vereist om de verwerkingsverantwoordelijke te identificeren.</div>
+  </section>
+
+  <section id="donnees-locales">
+    <div class="sec-num">02</div>
+    <h2>De gegevens die op uw apparaat worden opgeslagen</h2>
+    <p>ChassIA bewaart uw informatie <strong>lokaal</strong>, in de opslag van uw browser (localStorage). Ze wordt niet verzonden, niet door de uitgever ingezien en niet op een server bewaard. Ze blijft op het apparaat dat u gebruikt.</p>
+
+    <div class="data-card"><div class="key">Jachtlogboek</div><p class="desc">Stukken, datums, soorten, kalibers, plaatsen, notities en andere details die u invoert.</p></div>
+    <div class="data-card"><div class="key">Digitale kluis</div><p class="desc">De documenten die u toevoegt (jachtverlof, verzekering, certificaten…), opgeslagen als gecodeerde bestanden op uw apparaat.</p></div>
+    <div class="data-card"><div class="key">Voorkeuren</div><p class="desc">Uw weergavetaal en uw gebruiksinstellingen.</p></div>
+    <div class="data-card"><div class="key">Gebruiksteller</div><p class="desc">Het aantal gebruikte AI-vragen of -credits, om de dagelijkse en maandelijkse limieten te beheren. Er wordt geen inhoud van vragen bewaard, alleen een aantal.</p></div>
+
+    <p class="note">Omdat deze gegevens in uw browser leven, kunnen ze worden gewist als u de browsergegevens wist, de toepassing verwijdert of van apparaat wisselt. Bewaar een kopie van uw belangrijke documenten elders.</p>
+  </section>
+
+  <section id="ia">
+    <div class="sec-num">03</div>
+    <h2>De gegevens die naar de artificiële intelligentie worden gestuurd</h2>
+    <p>Wanneer u de AI-assistent gebruikt of advies over een kaliber of munitie vraagt, <strong>wordt de tekst van uw vraag naar een AI-dienst gestuurd</strong> om een antwoord te genereren. Dit is het enige moment waarop een gegeven uw apparaat verlaat.</p>
+    <h3>Wie deze verzoeken verwerkt</h3>
+    <p>De verzoeken worden verwerkt door <strong>Anthropic</strong> (Claude-modellen), via een beveiligde verbinding. Anthropic treedt op als technische verwerker om het antwoord te produceren. ChassIA bewaart de geschiedenis van uw gesprekken niet op een server: die blijft in uw browser gedurende de sessie.</p>
+    <h3>Onze aanbeveling</h3>
+    <p>Vermijd het invoeren van gevoelige of identificeerbare informatie in uw vragen aan de AI (volledige naam, contactgegevens, gegevens van anderen). Een vraag over een kaliber of een reglement hoeft geen persoonsgegevens te bevatten.</p>
+  </section>
+
+  <section id="hebergement">
+    <div class="sec-num">04</div>
+    <h2>Hosting</h2>
+    <p>De toepassing wordt gehost door <strong>Vercel Inc.</strong> (340 Pine Street, Suite 701, San Francisco, CA 94104, Verenigde Staten). De host verwerkt technisch de verzoeken die nodig zijn om de toepassing weer te geven. Standaard technische logs van een webserver (zoals het IP-adres van de verbinding) kunnen worden verwerkt voor werking en beveiliging.</p>
+  </section>
+
+  <section id="cookies">
+    <div class="sec-num">05</div>
+    <h2>Cookies en trackers</h2>
+    <p>ChassIA <strong>gebruikt geen reclamecookies en geen trackers van derden</strong>: geen Google Analytics, geen pixel van sociale netwerken, geen profilering. De hierboven beschreven lokale opslag dient enkel voor de werking van de toepassing (uw voorkeuren en uw logboek), nooit om u te volgen.</p>
+  </section>
+
+  <section id="base-legale">
+    <div class="sec-num">06</div>
+    <h2>Rechtsgrond en doeleinden</h2>
+    <p>Voor zover gegevens worden verwerkt, zijn de rechtsgronden (in de zin van artikel 6 AVG):</p>
+    <ul>
+      <li><strong>Uw toestemming</strong> en de uitvoering van de dienst, wanneer u vrijwillig een vraag naar de AI-assistent stuurt.</li>
+      <li><strong>Het gerechtvaardigd belang</strong> bij de goede werking en de beveiliging van de toepassing (technische logs van de host).</li>
+    </ul>
+    <p>De doeleinden beperken zich tot: de toepassing laten werken, uw AI-vragen beantwoorden en de gebruikslimieten beheren. Geen enkel gegeven wordt voor marketing gebruikt of doorverkocht.</p>
+  </section>
+
+  <section id="conservation">
+    <div class="sec-num">07</div>
+    <h2>Bewaartermijn</h2>
+    <ul>
+      <li><strong>Lokale gegevens</strong> (logboek, kluis, voorkeuren): zo lang u wilt op uw apparaat bewaard. U verwijdert ze op elk moment vanuit de toepassing of door de browsergegevens te wissen.</li>
+      <li><strong>AI-verzoeken</strong>: verzonden gedurende de tijd om het antwoord te produceren, zonder bewaring door ChassIA op een server.</li>
+      <li><strong>Technische logs van de host</strong>: bewaard gedurende een beperkte periode volgens de praktijken van de host, om beveiligingsredenen.</li>
+    </ul>
+  </section>
+
+  <section id="droits">
+    <div class="sec-num">08</div>
+    <h2>Uw rechten</h2>
+    <p>Overeenkomstig de AVG beschikt u over de rechten op inzage, rectificatie, wissing, beperking, bezwaar en overdraagbaarheid van uw persoonsgegevens.</p>
+    <p>In de praktijk, aangezien uw gegevens op uw apparaat zijn opgeslagen:</p>
+    <ul>
+      <li>U <strong>raadpleegt</strong> uw gegevens rechtstreeks in de toepassing (logboek, kluis).</li>
+      <li>U <strong>wijzigt</strong> of <strong>verwijdert</strong> ze zelf op elk moment, zonder tussenpersoon.</li>
+      <li>Voor een volledige wissing wist u de sitegegevens in de instellingen van uw browser.</li>
+    </ul>
+    <p>Voor elke vraag over uw rechten of de verwerking van uw gegevens, schrijf naar <a href="mailto:contact@chassia.be">contact@chassia.be</a>.</p>
+  </section>
+
+  <section id="transferts">
+    <div class="sec-num">09</div>
+    <h2>Doorgifte buiten de Europese Unie</h2>
+    <p>Twee technische dienstverleners zijn gevestigd in de Verenigde Staten:</p>
+    <ul>
+      <li><strong>Vercel</strong>, voor de hosting van de toepassing.</li>
+      <li><strong>Anthropic</strong>, voor de verwerking van de verzoeken aan de AI-assistent.</li>
+    </ul>
+    <p>Het gebruik van deze diensten kan een doorgifte van gegevens naar de Verenigde Staten met zich meebrengen, omkaderd door de passende waarborgen voorzien door de AVG (modelcontractbepalingen en gelijkwaardige mechanismen). Door een vraag naar de AI te sturen, wordt u over deze doorgifte geïnformeerd.</p>
+  </section>
+
+  <section id="securite">
+    <div class="sec-num">10</div>
+    <h2>Beveiliging</h2>
+    <p>De toepassing wordt geleverd via een versleutelde verbinding (HTTPS). De verzoeken naar de AI lopen via een beveiligde gateway die geen enkele toegangssleutel aan de browserzijde onthult. Aangezien uw documenten en uw logboek op uw apparaat blijven, hangt hun beveiliging ook af van die van het apparaat dat u gebruikt: bescherm het met een code of een vergrendeling.</p>
+  </section>
+
+  <section id="futur">
+    <div class="sec-num">11</div>
+    <h2>Betalingen en toekomstige functies</h2>
+    <p>Betalende abonnementen en de synchronisatie van uw gegevens in de cloud <strong>zijn nog niet actief</strong> in de huidige versie van de toepassing.</p>
+    <p>Wanneer ze worden ingevoerd, zullen ze steunen op gespecialiseerde dienstverleners (een betaaldienstverlener die als verkoper optreedt om de facturatie en de btw te beheren, en een databasehostingdienst voor de synchronisatie). Dit privacybeleid wordt dan bijgewerkt om deze verwerkingen precies te beschrijven <strong>vóór</strong> hun activering.</p>
+  </section>
+
+  <section id="mineurs">
+    <div class="sec-num">12</div>
+    <h2>Minderjarigen</h2>
+    <p>ChassIA richt zich tot jagers met een jachtverlof, dus tot meerderjarige personen. De toepassing is niet bestemd voor minderjarigen en verzamelt niet bewust hun gegevens.</p>
+  </section>
+
+  <section id="modifications">
+    <div class="sec-num">13</div>
+    <h2>Wijzigingen aan dit beleid</h2>
+    <p>Dit beleid kan evolueren, met name bij het toevoegen van nieuwe functies. De datum van de laatste bijwerking staat bovenaan de pagina. Bij een belangrijke wijziging van de verwerking van uw gegevens wordt de informatie zichtbaar gemaakt in de toepassing.</p>
+  </section>
+
+  <section id="reclamation">
+    <div class="sec-num">14</div>
+    <h2>Klacht</h2>
+    <p>Als u van mening bent dat de verwerking van uw gegevens de regelgeving niet naleeft, kunt u een klacht indienen bij de Belgische toezichthoudende autoriteit:</p>
+    <p><strong>Gegevensbeschermingsautoriteit (GBA)</strong><br/>
+    Drukpersstraat 35, 1000 Brussel<br/>
+    <a href="https://www.gegevensbeschermingsautoriteit.be" target="_blank" rel="noopener">www.gegevensbeschermingsautoriteit.be</a></p>
+  </section>
+
+  <footer>
+    ChassIA — de assistent van de Belgische jager<br/>
+    Dit beleid wordt ter informatie verstrekt en moet juridisch worden gevalideerd vóór definitieve publicatie.<br/>
+    <a href="/">Terug naar de toepassing</a>
+  </footer>
+
+</div>
+</body>
+</html>

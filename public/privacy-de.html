@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="color-scheme" content="dark" />
+<meta name="theme-color" content="#0d0f0a" />
+<meta name="robots" content="index, follow" />
+<title>Datenschutzerklärung — ChassIA</title>
+<meta name="description" content="Datenschutzerklärung von ChassIA, dem Assistenten des belgischen Jägers. Ihre Daten bleiben auf Ihrem Gerät." />
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;900&family=IBM+Plex+Mono:wght@400;500;600&family=Crimson+Pro:ital,wght@0,400;0,500;1,400&display=swap');
+
+  :root {
+    color-scheme: dark;
+    --bg: #0d0f0a; --panel: #131508; --panel-2: #1a1e0f; --line: #2a3015;
+    --bone: #e8ead8; --white: #f5f7e8; --sage: #8a9068; --sage-dim: #5a6040; --lime: #8fb020; --lime-dim: #6a8415;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  html { background: #0d0f0a; }
+  body { margin: 0; min-height: 100vh; background: #0d0f0a; color: var(--bone); font-family: 'Crimson Pro', Georgia, serif; font-size: 1.08rem; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 22px 80px; }
+  header.masthead { border-bottom: 1px solid var(--line); padding: 48px 0 28px; margin-bottom: 36px; }
+  .brand { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 1.5rem; letter-spacing: -0.01em; color: var(--bone); text-decoration: none; }
+  .brand span { color: var(--lime); }
+  .eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--lime); margin: 26px 0 10px; }
+  h1 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(2.1rem, 6vw, 3rem); line-height: 1.05; letter-spacing: -0.015em; margin: 0 0 14px; }
+  .meta { font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem; color: var(--sage-dim); letter-spacing: 0.02em; }
+  .principle { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; margin: 8px 0 44px; }
+  .principle > div { background: var(--panel); padding: 22px 20px; }
+  .principle .stays { background: var(--panel-2); }
+  .principle .tag { font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 10px; display: flex; align-items: center; gap: 7px; }
+  .principle .stays .tag { color: var(--lime); }
+  .principle .sent .tag { color: var(--sage); }
+  .principle .dot { width: 8px; height: 8px; border-radius: 99px; flex-shrink: 0; }
+  .principle .stays .dot { background: var(--lime); }
+  .principle .sent .dot { background: var(--sage); }
+  .principle p { margin: 0; font-size: 0.98rem; line-height: 1.55; color: var(--bone); }
+  .principle .small { color: var(--sage); font-size: 0.88rem; margin-top: 8px; }
+  @media (max-width: 560px) { .principle { grid-template-columns: 1fr; } }
+  section { margin: 0 0 38px; scroll-margin-top: 20px; }
+  .sec-num { font-family: 'IBM Plex Mono', monospace; font-size: 0.74rem; color: var(--lime); letter-spacing: 0.1em; }
+  h2 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.42rem; line-height: 1.2; margin: 6px 0 14px; color: var(--bone); }
+  h3 { font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 0.82rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--sage); margin: 22px 0 8px; }
+  p { margin: 0 0 14px; }
+  a { color: var(--lime); text-decoration: none; border-bottom: 1px solid var(--lime-dim); }
+  a:hover { border-bottom-color: var(--lime); }
+  strong { color: #fff; font-weight: 600; }
+  ul { margin: 0 0 14px; padding-left: 0; list-style: none; }
+  ul li { position: relative; padding-left: 22px; margin-bottom: 9px; }
+  ul li::before { content: "▸"; position: absolute; left: 0; color: var(--lime-dim); }
+  .data-card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; margin: 0 0 14px; }
+  .data-card .key { font-family: 'IBM Plex Mono', monospace; font-size: 0.74rem; color: var(--lime); margin-bottom: 4px; }
+  .data-card .desc { font-size: 0.96rem; color: var(--bone); margin: 0; }
+  .note { border-left: 2px solid var(--lime-dim); padding: 4px 0 4px 16px; margin: 0 0 14px; color: var(--sage); font-style: italic; font-size: 0.96rem; }
+  .todo { background: rgba(200, 241, 53, 0.06); border: 1px dashed var(--lime-dim); border-radius: 8px; padding: 12px 16px; margin: 0 0 14px; font-family: 'IBM Plex Mono', monospace; font-size: 0.8rem; line-height: 1.6; color: var(--lime); }
+  footer { border-top: 1px solid var(--line); margin-top: 50px; padding-top: 24px; font-family: 'IBM Plex Mono', monospace; font-size: 0.76rem; color: var(--sage-dim); line-height: 1.7; }
+  footer a { color: var(--sage); border: none; }
+  footer a:hover { color: var(--lime); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <a href="/" class="brand">Chass<span>IA</span></a>
+    <div class="eyebrow">Datenschutz</div>
+    <h1>Datenschutzerklärung</h1>
+    <div class="meta">Zuletzt aktualisiert: Juni 2026 · Version 1.0</div>
+  </header>
+
+  <div class="principle">
+    <div class="stays">
+      <div class="tag"><span class="dot"></span>Bleibt auf Ihrem Gerät</div>
+      <p>Ihr Jagdtagebuch, Ihre Dokumente (Jagdschein, Versicherung), Ihre Einstellungen. Nichts wird an einen Server gesendet, nichts wird geteilt.</p>
+    </div>
+    <div class="sent">
+      <div class="tag"><span class="dot"></span>Verlässt Ihr Gerät</div>
+      <p>Nur der Text Ihrer Fragen an den KI-Assistenten, übermittelt für die Dauer der Antworterstellung.</p>
+      <p class="small">Dies ist das einzige Datum, das Ihr Telefon verlässt.</p>
+    </div>
+  </div>
+
+  <p>ChassIA ist eine Anwendung zur Unterstützung von Jägern. Sie wurde so konzipiert, dass sie <strong>ohne Erhebung Ihrer personenbezogenen Daten</strong> funktioniert: Das meiste, was Sie darin speichern, verlässt nie Ihr Gerät. Diese Seite erklärt genau, welche Informationen verarbeitet werden, wie, und welche Rechte Sie haben.</p>
+
+  <section id="editeur">
+    <div class="sec-num">01</div>
+    <h2>Wer für Ihre Daten verantwortlich ist</h2>
+    <p>ChassIA wird in Belgien als selbständige Tätigkeit herausgegeben und betrieben. Der Verantwortliche ist unter folgender Adresse erreichbar:</p>
+    <p><strong>Kontakt:</strong> <a href="mailto:contact@chassia.be">contact@chassia.be</a></p>
+    <div class="todo">VOR VERÖFFENTLICHUNG ZU ERGÄNZEN: rechtlicher Name des Herausgebers, Postanschrift und Unternehmensnummer (ZUD). Diese Angaben sind nach der DSGVO erforderlich, um den Verantwortlichen zu identifizieren.</div>
+  </section>
+
+  <section id="donnees-locales">
+    <div class="sec-num">02</div>
+    <h2>Die auf Ihrem Gerät gespeicherten Daten</h2>
+    <p>ChassIA speichert Ihre Informationen <strong>lokal</strong>, im Speicher Ihres Browsers (localStorage). Sie werden nicht übermittelt, nicht vom Herausgeber eingesehen und nicht auf einem Server gespeichert. Sie bleiben auf dem Gerät, das Sie verwenden.</p>
+
+    <div class="data-card"><div class="key">Jagdtagebuch</div><p class="desc">Erlegungen, Daten, Arten, Kaliber, Orte, Notizen und weitere Details, die Sie eingeben.</p></div>
+    <div class="data-card"><div class="key">Digitaler Tresor</div><p class="desc">Die Dokumente, die Sie hinzufügen (Jagdschein, Versicherung, Bescheinigungen…), als codierte Dateien auf Ihrem Gerät gespeichert.</p></div>
+    <div class="data-card"><div class="key">Einstellungen</div><p class="desc">Ihre Anzeigesprache und Ihre Nutzungseinstellungen.</p></div>
+    <div class="data-card"><div class="key">Nutzungszähler</div><p class="desc">Die Anzahl der verwendeten KI-Fragen oder -Credits, um die täglichen und monatlichen Limits zu verwalten. Es wird kein Frageninhalt gespeichert, nur eine Zahl.</p></div>
+
+    <p class="note">Da diese Daten in Ihrem Browser leben, können sie gelöscht werden, wenn Sie die Browserdaten löschen, die Anwendung deinstallieren oder das Gerät wechseln. Bewahren Sie eine Kopie Ihrer wichtigen Dokumente an anderer Stelle auf.</p>
+  </section>
+
+  <section id="ia">
+    <div class="sec-num">03</div>
+    <h2>Die an die künstliche Intelligenz gesendeten Daten</h2>
+    <p>Wenn Sie den KI-Assistenten nutzen oder eine Beratung zu einem Kaliber oder einer Munition anfragen, <strong>wird der Text Ihrer Anfrage an einen KI-Dienst übermittelt</strong>, um eine Antwort zu erzeugen. Dies ist der einzige Moment, in dem ein Datum Ihr Gerät verlässt.</p>
+    <h3>Wer diese Anfragen verarbeitet</h3>
+    <p>Die Anfragen werden von <strong>Anthropic</strong> (Claude-Modelle) über eine gesicherte Verbindung verarbeitet. Anthropic handelt als technischer Auftragsverarbeiter, um die Antwort zu erzeugen. ChassIA speichert den Verlauf Ihrer Gespräche nicht auf einem Server: Er bleibt während der Sitzung in Ihrem Browser.</p>
+    <h3>Unsere Empfehlung</h3>
+    <p>Vermeiden Sie es, sensible oder identifizierende Informationen in Ihre Fragen an die KI einzugeben (vollständiger Name, Kontaktdaten, Daten Dritter). Eine Frage zu einem Kaliber oder einer Vorschrift muss keine personenbezogenen Daten enthalten.</p>
+  </section>
+
+  <section id="hebergement">
+    <div class="sec-num">04</div>
+    <h2>Hosting</h2>
+    <p>Die Anwendung wird von <strong>Vercel Inc.</strong> (340 Pine Street, Suite 701, San Francisco, CA 94104, USA) gehostet. Der Hoster verarbeitet technisch die zur Anzeige der Anwendung erforderlichen Anfragen. Technische Standardprotokolle eines Webservers (wie die IP-Adresse der Verbindung) können zu Betriebs- und Sicherheitszwecken verarbeitet werden.</p>
+  </section>
+
+  <section id="cookies">
+    <div class="sec-num">05</div>
+    <h2>Cookies und Tracker</h2>
+    <p>ChassIA <strong>verwendet keine Werbe-Cookies und keine Tracker von Drittanbietern</strong>: kein Google Analytics, kein Pixel sozialer Netzwerke, kein Profiling. Der oben beschriebene lokale Speicher dient ausschließlich dem Betrieb der Anwendung (Ihre Einstellungen und Ihr Tagebuch), niemals dazu, Sie zu verfolgen.</p>
+  </section>
+
+  <section id="base-legale">
+    <div class="sec-num">06</div>
+    <h2>Rechtsgrundlage und Zwecke</h2>
+    <p>Soweit Daten verarbeitet werden, sind die Rechtsgrundlagen (im Sinne von Artikel 6 DSGVO):</p>
+    <ul>
+      <li><strong>Ihre Einwilligung</strong> und die Erfüllung des Dienstes, wenn Sie freiwillig eine Frage an den KI-Assistenten senden.</li>
+      <li><strong>Das berechtigte Interesse</strong> am ordnungsgemäßen Betrieb und an der Sicherheit der Anwendung (technische Protokolle des Hosters).</li>
+    </ul>
+    <p>Die Zwecke beschränken sich auf: den Betrieb der Anwendung, die Beantwortung Ihrer KI-Fragen und die Verwaltung der Nutzungslimits. Keine Daten werden für Marketing verwendet oder weiterverkauft.</p>
+  </section>
+
+  <section id="conservation">
+    <div class="sec-num">07</div>
+    <h2>Speicherdauer</h2>
+    <ul>
+      <li><strong>Lokale Daten</strong> (Tagebuch, Tresor, Einstellungen): so lange Sie möchten auf Ihrem Gerät gespeichert. Sie löschen sie jederzeit über die Anwendung oder durch Löschen der Browserdaten.</li>
+      <li><strong>KI-Anfragen</strong>: übermittelt für die Dauer der Antworterstellung, ohne Speicherung durch ChassIA auf einem Server.</li>
+      <li><strong>Technische Protokolle des Hosters</strong>: für einen begrenzten Zeitraum gemäß den Praktiken des Hosters aus Sicherheitsgründen gespeichert.</li>
+    </ul>
+  </section>
+
+  <section id="droits">
+    <div class="sec-num">08</div>
+    <h2>Ihre Rechte</h2>
+    <p>Gemäß der DSGVO haben Sie das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung, Widerspruch und Übertragbarkeit Ihrer personenbezogenen Daten.</p>
+    <p>In der Praxis, da Ihre Daten auf Ihrem Gerät gespeichert sind:</p>
+    <ul>
+      <li>Sie <strong>greifen</strong> direkt in der Anwendung auf Ihre Daten zu (Tagebuch, Tresor).</li>
+      <li>Sie <strong>ändern</strong> oder <strong>löschen</strong> sie jederzeit selbst, ohne Vermittler.</li>
+      <li>Für eine vollständige Löschung löschen Sie die Website-Daten in den Einstellungen Ihres Browsers.</li>
+    </ul>
+    <p>Für jede Frage zu Ihren Rechten oder zur Verarbeitung Ihrer Daten schreiben Sie an <a href="mailto:contact@chassia.be">contact@chassia.be</a>.</p>
+  </section>
+
+  <section id="transferts">
+    <div class="sec-num">09</div>
+    <h2>Übermittlung außerhalb der Europäischen Union</h2>
+    <p>Zwei technische Dienstleister sind in den USA ansässig:</p>
+    <ul>
+      <li><strong>Vercel</strong>, für das Hosting der Anwendung.</li>
+      <li><strong>Anthropic</strong>, für die Verarbeitung der Anfragen an den KI-Assistenten.</li>
+    </ul>
+    <p>Die Nutzung dieser Dienste kann eine Übermittlung von Daten in die USA mit sich bringen, abgesichert durch die nach der DSGVO vorgesehenen geeigneten Garantien (Standardvertragsklauseln und gleichwertige Mechanismen). Durch das Senden einer Frage an die KI werden Sie über diese Übermittlung informiert.</p>
+  </section>
+
+  <section id="securite">
+    <div class="sec-num">10</div>
+    <h2>Sicherheit</h2>
+    <p>Die Anwendung wird über eine verschlüsselte Verbindung (HTTPS) bereitgestellt. Die Anfragen an die KI laufen über ein gesichertes Gateway, das keinen Zugriffsschlüssel auf der Browserseite offenlegt. Da Ihre Dokumente und Ihr Tagebuch auf Ihrem Gerät bleiben, hängt deren Sicherheit auch von der Sicherheit des verwendeten Geräts ab: Schützen Sie es mit einem Code oder einer Sperre.</p>
+  </section>
+
+  <section id="futur">
+    <div class="sec-num">11</div>
+    <h2>Zahlungen und künftige Funktionen</h2>
+    <p>Kostenpflichtige Abonnements und die Synchronisierung Ihrer Daten in der Cloud <strong>sind in der aktuellen Version der Anwendung noch nicht aktiv</strong>.</p>
+    <p>Sobald sie eingeführt werden, stützen sie sich auf spezialisierte Dienstleister (einen Zahlungsdienstleister, der als Verkäufer auftritt, um Abrechnung und Mehrwertsteuer zu verwalten, und einen Datenbank-Hosting-Dienst für die Synchronisierung). Diese Datenschutzerklärung wird dann aktualisiert, um diese Verarbeitungen genau zu beschreiben — <strong>vor</strong> ihrer Aktivierung.</p>
+  </section>
+
+  <section id="mineurs">
+    <div class="sec-num">12</div>
+    <h2>Minderjährige</h2>
+    <p>ChassIA richtet sich an Jäger mit Jagdschein, also an volljährige Personen. Die Anwendung ist nicht für Minderjährige bestimmt und erhebt nicht wissentlich deren Daten.</p>
+  </section>
+
+  <section id="modifications">
+    <div class="sec-num">13</div>
+    <h2>Änderungen dieser Erklärung</h2>
+    <p>Diese Erklärung kann sich weiterentwickeln, insbesondere beim Hinzufügen neuer Funktionen. Das Datum der letzten Aktualisierung steht oben auf der Seite. Bei einer wesentlichen Änderung der Verarbeitung Ihrer Daten wird die Information in der Anwendung sichtbar gemacht.</p>
+  </section>
+
+  <section id="reclamation">
+    <div class="sec-num">14</div>
+    <h2>Beschwerde</h2>
+    <p>Wenn Sie der Ansicht sind, dass die Verarbeitung Ihrer Daten nicht den Vorschriften entspricht, können Sie bei der belgischen Aufsichtsbehörde Beschwerde einlegen:</p>
+    <p><strong>Datenschutzbehörde (DSB)</strong><br/>
+    Rue de la Presse 35, 1000 Brüssel<br/>
+    <a href="https://www.autoriteprotectiondonnees.be" target="_blank" rel="noopener">www.autoriteprotectiondonnees.be</a></p>
+  </section>
+
+  <footer>
+    ChassIA — der Assistent des belgischen Jägers<br/>
+    Diese Erklärung wird zu Informationszwecken bereitgestellt und muss vor der endgültigen Veröffentlichung rechtlich geprüft werden.<br/>
+    <a href="/">Zurück zur Anwendung</a>
+  </footer>
+
+</div>
+</body>
+</html>
