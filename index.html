@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChassIA — L'assistant IA du chasseur belge</title>
+    <meta name="description" content="ChassIA — L'assistant IA du chasseur belge. Cibles de réglage personnalisées, conseils calibre et munitions, réglementation. Disponible en FR, NL, DE et EN." />
+
+    <!-- Adresse canonique : évite que Google indexe plusieurs versions du site -->
+    <link rel="canonical" href="https://www.chassia.be/" />
+
+    <!-- Aperçu lors d'un partage (WhatsApp, Facebook, forums de chasse…) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.chassia.be/" />
+    <meta property="og:site_name" content="ChassIA" />
+    <meta property="og:title" content="ChassIA — L'assistant IA du chasseur belge" />
+    <meta property="og:description" content="Cibles de réglage personnalisées, conseils calibre et munitions, réglementation belge. FR · NL · DE · EN" />
+    <meta property="og:image" content="https://www.chassia.be/icon-512.png" />
+    <meta property="og:locale" content="fr_BE" />
+    <meta property="og:locale:alternate" content="nl_BE" />
+    <meta property="og:locale:alternate" content="de_BE" />
+    <meta property="og:locale:alternate" content="en_GB" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="ChassIA — L'assistant IA du chasseur belge" />
+    <meta name="twitter:description" content="Cibles de réglage, conseils calibre et munitions, réglementation belge." />
+    <meta name="twitter:image" content="https://www.chassia.be/icon-512.png" />
+
+    <!-- Indexation -->
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#8fb020" />
+
+    <!-- Données structurées : aide Google à comprendre la nature du site -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "ChassIA",
+        "url": "https://www.chassia.be/",
+        "description": "Assistant numérique pour chasseurs belges : cibles de réglage personnalisées, recommandations de calibres et de munitions, informations réglementaires.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Web",
+        "inLanguage": ["fr", "nl", "de", "en"],
+        "areaServed": { "@type": "Country", "name": "Belgique" },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+      }
+    </script>
+
+    <!-- iOS PWA -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="ChassIA" />
+    <link rel="apple-touch-icon" href="/icon-180.png" />
+
+    <!-- Connexion anticipée aux polices : améliore le temps d'affichage -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
