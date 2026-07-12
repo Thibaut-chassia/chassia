@@ -1,0 +1,43 @@
+name: CI
+
+# Filet de sécurité avant que Vercel ne déploie.
+# Se déclenche à chaque push sur main et sur chaque pull request.
+# Si un job échoue, une croix rouge ❌ apparaît sur le commit dans GitHub.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    name: Build + tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v4
+
+      - name: Installer Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Installer les dépendances
+        run: npm install
+
+      # 1) Le build DOIT passer : attrape toute erreur de syntaxe JSX
+      #    (délimiteur manquant, balise non fermée…) — le principal risque
+      #    du workflow d'édition manuelle via l'interface web GitHub.
+      - name: Build (vite build)
+        run: npm run build
+
+      # 2) Les tests : balistique, intégrité des 522 munitions, parité i18n
+      - name: Tests
+        run: npm test
+
+      # 3) Le proxy serverless doit être syntaxiquement valide
+      #    (il n'est pas couvert par le build Vite)
+      - name: Vérifier la syntaxe du proxy
+        run: node --check api/claude.js
