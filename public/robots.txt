@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# L'API n'a pas vocation à être explorée
+Disallow: /api/
+
+Sitemap: https://www.chassia.be/sitemap.xml
