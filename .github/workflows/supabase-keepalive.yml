@@ -1,0 +1,39 @@
+name: Supabase anti-pause ping
+
+# Empêche la pause automatique du projet Supabase gratuit après 7 jours
+# d'inactivité (aucune requête à la base). Un simple appel API compte comme
+# activité, même s'il ne renvoie aucune ligne.
+#
+# Fréquence : lundi et vendredi -> large marge de sécurité sous les 7 jours,
+# même si une exécution est ratée (panne GitHub, etc.).
+#
+# Valeurs utilisées ci-dessous : URL du projet + clé publique "publishable"
+# (sb_publishable_...). Cette clé est conçue pour être publique — elle figure
+# déjà dans le code front de l'app — donc aucun risque à la voir apparaître
+# ici en clair, pas besoin de la stocker en secret GitHub pour ce cas précis.
+
+on:
+  schedule:
+    - cron: '0 6 * * 1,5'   # 06:00 UTC, lundi (1) et vendredi (5)
+  workflow_dispatch:        # permet de déclencher le ping manuellement depuis l'onglet Actions, pour tester
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase (empêche la mise en pause pour inactivité)
+        run: |
+          HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" \
+            "https://tcnvqpwdtunmxrngisyn.supabase.co/rest/v1/profiles?select=id&limit=1" \
+            -H "apikey: sb_publishable_GStfDjxnTklKkdHm59zF0g_J1ov6ZM2" \
+            -H "Authorization: Bearer sb_publishable_GStfDjxnTklKkdHm59zF0g_J1ov6ZM2")
+          echo "Réponse Supabase : HTTP $HTTP_CODE"
+          # La clé publique seule (sans session utilisateur) ne verra aucune ligne
+          # à cause de RLS -- la réponse sera très probablement 200 avec une liste
+          # vide, ce qui est parfaitement normal et compte déjà comme une vraie
+          # requête API. Seule une absence totale de réponse ou une erreur serveur
+          # (5xx) indique un vrai problème.
+          if [ "$HTTP_CODE" -ge 500 ] || [ "$HTTP_CODE" -eq 000 ]; then
+            echo "Erreur serveur ou requête injoignable, le job échoue pour investigation."
+            exit 1
+          fi
