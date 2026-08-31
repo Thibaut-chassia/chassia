@@ -1,0 +1,69 @@
+name: Supabase anti-pause ping
+
+# Empêche la pause automatique du projet Supabase gratuit après 7 jours sans
+# "activité suffisante" de base de données.
+#
+# HISTORIQUE — POURQUOI CE FICHIER A ÉTÉ RÉÉCRIT (31/08/2026) :
+# La première version interrogeait la table "profiles" avec la clé publique.
+# À cause de RLS, cette requête ne renvoyait jamais aucune ligne : Supabase
+# répondait HTTP 200 avec une liste vide. Le job GitHub s'affichait donc vert
+# (les exécutions des 17, 21, 24 et 28 août l'étaient toutes), mais Supabase a
+# quand même envoyé un avertissement de mise en pause le 31/08. Conclusion :
+# une requête qui ne lit aucune ligne ne compte pas comme activité suffisante.
+#
+# CE QUI CHANGE :
+# 1. On interroge la table dédiée "keepalive" (voir supabase/keepalive.sql),
+#    lisible publiquement et contenant une ligne : la requête ramène donc de
+#    vraies données.
+# 2. Ping QUOTIDIEN au lieu de deux fois par semaine. GitHub retarde ou saute
+#    parfois les tâches planifiées ; avec un ping par jour, il faudrait sept
+#    ratés d'affilée pour atteindre le seuil des 7 jours.
+# 3. Le job ÉCHOUE (devient rouge) si la réponse n'est pas un HTTP 200
+#    contenant réellement une ligne. GitHub envoie alors un mail d'échec :
+#    on est prévenu par GitHub au lieu de l'apprendre par Supabase.
+#
+# La clé utilisée est la clé publique "publishable" (sb_publishable_...),
+# conçue pour être publique — elle figure déjà dans le code front de l'app.
+# Aucun secret GitHub nécessaire. La clé "Secret key" / service_role ne doit
+# JAMAIS apparaître ici.
+
+on:
+  schedule:
+    - cron: '17 6 * * *'    # tous les jours à 06:17 UTC
+                            # (minute décalée : les crons à l'heure pile sont
+                            #  les plus souvent retardés par GitHub)
+  workflow_dispatch:        # déclenchement manuel depuis l'onglet Actions
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase (empêche la mise en pause pour inactivité)
+        run: |
+          RESPONSE=$(curl -s -w "\n%{http_code}" --max-time 30 \
+            "https://tcnvqpwdtunmxrngisyn.supabase.co/rest/v1/keepalive?select=id,pinged_at&limit=1" \
+            -H "apikey: sb_publishable_GStfDjxnTklKkdHm59zF0g_J1ov6ZM2" \
+            -H "Authorization: Bearer sb_publishable_GStfDjxnTklKkdHm59zF0g_J1ov6ZM2")
+
+          HTTP_CODE=$(echo "$RESPONSE" | tail -n 1)
+          BODY=$(echo "$RESPONSE" | sed '$d')
+
+          echo "Réponse Supabase : HTTP $HTTP_CODE"
+          echo "Contenu : $BODY"
+
+          # Un code différent de 200 = problème (401/404 : clé ou table ; 540 :
+          # projet déjà en pause ; 000 : injoignable ; 5xx : panne Supabase).
+          if [ "$HTTP_CODE" != "200" ]; then
+            echo "::error::Ping en échec (HTTP $HTTP_CODE) — le projet Supabase risque la mise en pause."
+            exit 1
+          fi
+
+          # Le point crucial : la réponse doit contenir une VRAIE ligne. Une
+          # liste vide ("[]") signifie que la requête n'a rien lu — c'est
+          # exactement le cas qui a laissé passer l'avertissement du 31/08.
+          if ! echo "$BODY" | grep -q '"pinged_at"'; then
+            echo "::error::Réponse vide : aucune ligne lue, ce ping ne compte pas comme activité. Vérifier la table keepalive et sa règle de lecture."
+            exit 1
+          fi
+
+          echo "Ping valide : une ligne réellement lue en base."
